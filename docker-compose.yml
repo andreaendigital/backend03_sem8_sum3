@@ -31,14 +31,6 @@ services:
       KAFKA_LOG_RETENTION_HOURS: 24
     networks:
       - banco-xyz-network
-    healthcheck:
-      test:
-        - CMD-SHELL
-        - /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1
-      timeout: 10s
-      interval: 15s
-      retries: 10
-      start_period: 30s
 
   # ─────────────────────────────────────────────────────────────────────────
   # MICROSERVICIOS — orden: config-server → eureka → auth-server → api-cuentas
@@ -138,8 +130,6 @@ services:
       eureka-server:
         condition: service_healthy
       auth-server:
-        condition: service_healthy
-      kafka:
         condition: service_healthy
     extra_hosts:
       # Garantiza que host.docker.internal resuelva al host en todas las plataformas
