@@ -287,6 +287,23 @@ Configurado en `api-cuentas` sobre el método `CuentaService.obtenerTodas()`:
 
 ---
 
+## Evidencias de ejecución
+
+### Contenedores Docker activos
+
+La siguiente captura muestra los contenedores levantados mediante `docker compose up --build -d`:
+
+![Contenedores Docker](images/contenedores.png)
+
+Los contenedores activos corresponden a:
+- `kafka-banco-xyz` — Apache Kafka 4.0.0 KRaft
+- `config-server-banco-xyz` — Spring Cloud Config Server
+- `eureka-banco-xyz` — Eureka Server
+- `auth-server-banco-xyz` — OAuth2 Authorization Server
+- `api-cuentas-banco-xyz` — Microservicio principal
+
+---
+
 ## Tecnologías
 
 | Tecnología | Versión |
