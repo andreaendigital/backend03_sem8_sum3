@@ -304,6 +304,22 @@ Los contenedores activos corresponden a:
 
 ---
 
+### Token OAuth2
+
+Obtención del access token mediante `POST /oauth2/token` con `client_credentials`:
+
+![Token OAuth2](images/token.png)
+
+---
+
+### API Cuentas protegida
+
+Consulta a `GET /api/cuentas` con el Bearer Token obtenido, retornando los datos reales desde MySQL:
+
+![API Cuentas](images/apicuentas.png)
+
+---
+
 ## Tecnologías
 
 | Tecnología | Versión |
