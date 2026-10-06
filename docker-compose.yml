@@ -32,10 +32,11 @@ services:
     networks:
       - banco-xyz-network
     healthcheck:
-      # Healthcheck simplificado: verifica que el puerto 9092 responde
-      test: ["CMD-SHELL", "echo > /dev/tcp/localhost/9092 2>/dev/null && echo ok || exit 1"]
-      interval: 15s
+      test:
+        - CMD-SHELL
+        - /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1
       timeout: 10s
+      interval: 15s
       retries: 10
       start_period: 30s
 
